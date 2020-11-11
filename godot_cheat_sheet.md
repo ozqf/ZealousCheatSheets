@@ -4,6 +4,17 @@ These are notes regarding doing basic boilerplate stuff with the Godot Engine.
 
 ## GDScript snippets
 
+### Check a function exists
+```
+if node.has_method(nameString):
+	# do stuff
+```
+
+### Check node exists without error
+```
+node.get_node_or_null(path)
+```
+
 ### Instance a Prefab in code
 ```
 # Import scene type
@@ -15,6 +26,15 @@ func foo:
     var obj = my_prefab_type.instance()
     # object must be placed in the node tree
     add_child(obj)
+```
+
+### Teleport Node2D
+
+```
+# eg
+func _process(delta):
+	var mPos := get_viewport().get_mouse_position()
+	set_global_position(mPos)
 ```
 
 ### Toggling Node states
@@ -78,6 +98,9 @@ func compare_dictionaries():
 Get Root of current:
 ```instance()```
 
+Get current scene root
+```var current_scene = get_tree().get_current_scene()```
+
 ### Misc snippets
 
 #### Get window and screen sizes
@@ -85,6 +108,12 @@ Get Root of current:
 var real: Vector2 = OS.get_real_window_size() # window size
 var scr: Vector2 = OS.get_screen_size() # actual monitor res
 ```
+
+### Collision
+
+#### Get object layer
+
+```object.get_collision_layer()```
 
 ## GDScript - Language elements
 
@@ -130,7 +159,14 @@ http://docs.godotengine.org/en/latest/getting_started/step_by_step/singletons_au
 
 ### Signals
 
-TODO...
+#### Custom signal
+```signal my_signal(arg1, arg2)```
+
+#### Connect Signal
+```targetNode.connect("signalName", self, "methodName")```
+
+#### Emit
+```self.emit_signal("signalName", arg1, arg2)```
 
 ## Application Node layouts
 
