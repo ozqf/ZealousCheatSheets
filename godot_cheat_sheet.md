@@ -101,6 +101,19 @@ Get Root of current:
 Get current scene root
 ```var current_scene = get_tree().get_current_scene()```
 
+### Groups
+
+Add node to any number of groups via node -> signals/groups panel.
+
+Via code:
+```add_to_group("group_name")```
+
+Call a function on all group members:
+```get_tree().call_group("group_name", "function_name")```
+
+Get an array of all nodes in group
+```var nodes = get_tree().get_nodes_in_group("group_name")
+
 ### Misc snippets
 
 #### Get window and screen sizes
@@ -113,7 +126,16 @@ var scr: Vector2 = OS.get_screen_size() # actual monitor res
 
 #### Get object layer
 
+Returns the NUMBER of the layer, not the name!
 ```object.get_collision_layer()```
+
+#### Gotchas
+
+If using is_on_floor():
+gravity must always be applied even when on ground
+otherwise is_on_floor will fail if move_and_slide
+has no y component into the floor!
+	
 
 ## GDScript - Language elements
 
@@ -128,7 +150,22 @@ These are common language features not present in gdscript (no comment on whethe
 const DEG2RAD = 0.017453292519
 const RAD2DEG = 57.2958
 ```
-functions CAN be static however. Presumably all data must be passed in via arguments however?
+Does it need to be added to an auto-load node to access from other scripts?
+functions CAN be static however? Presumably all data must be passed in via arguments however?
+
+### Concrete typing
+
+Concrete class references cannot access their super class:
+```
+func _on_body_enter_a(_body:PhysicsBody2D):
+	# will error on reading .name, only sees functions
+	# on PhysicsBody2D and not Node or Node2D
+	print("Body " + _body.name)
+
+func _on_body_enter_b(_body):
+	# no concrete class, will work fine
+	print("Body " + _body.name)
+```
 
 ### Useful extra keywords
 
