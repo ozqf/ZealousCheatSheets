@@ -101,6 +101,9 @@ Get Root of current:
 Get current scene root
 ```var current_scene = get_tree().get_current_scene()```
 
+Load new scene as level
+```get_tree().change_scene("res://path/to/scene.tscn")```
+
 ### Groups
 
 Add node to any number of groups via node -> signals/groups panel.
@@ -112,7 +115,7 @@ Call a function on all group members:
 ```get_tree().call_group("group_name", "function_name")```
 
 Get an array of all nodes in group
-```var nodes = get_tree().get_nodes_in_group("group_name")
+```var nodes = get_tree().get_nodes_in_group("group_name")```
 
 ### Misc snippets
 
@@ -307,6 +310,11 @@ https://godotengine.org/qa/57254/gdnative-vs-godot-engine-module-whats-the-best-
 https://godotengine.org/article/godot-3-renderer-design-explained
 
 ### Tutorials
+
+Reddit post listening written and video tutorials
+https://www.reddit.com/r/godot/comments/an0iq5/godot_tutorials_list_of_video_and_written/
+
+
 Third party gdnative tutorials:
 https://gamedevadventures.posthaven.com/using-c-plus-plus-and-gdnative-in-godot-part-1
 
