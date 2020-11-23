@@ -138,7 +138,27 @@ If using is_on_floor():
 gravity must always be applied even when on ground
 otherwise is_on_floor will fail if move_and_slide
 has no y component into the floor!
-	
+
+#### Raycast
+
+```
+var space = get_world().direct_space_state
+var origin:Vector3 = self.global_transform.origin
+var dest:Vector3 = Vector3()
+
+# all bits on - I prefer to register what I DON'T want
+# to detect
+var mask = -1
+# ignore a layer
+mask &= ~IGNORE_BIT
+var ignoreList = [self]
+
+var result = space.intersect_ray(origin, dest, ignoreList, mask)
+if result:
+	# use
+	# result.position
+	# result.normal
+```	
 
 ## GDScript - Language elements
 
