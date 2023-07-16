@@ -1,0 +1,177 @@
+
+shift+z			toggle wireframe
+shift+alt+z		add/remove overlays (eg grid)
+m				move selection to collection
+a				select all
+a x 2			clear existing selection
+alt+a			deslect
+shift+mouse2	move 3d cursor
+ctrl+space		toggle hide-sidebars
+s y - 1			scale -> y axis -> -1 scale factor
+
+Set position of 3D cursor:
+N -> opens item/tool/view option panels
+select view
+	3d cursor location and rotation should be listed
+
+Tab				Toggle between object/edit mode?
+
+Shift + C		Zoom out to whole scene...?
+
+Help! My zoom is stuck!
+Edit -> Preferences -> Navigation
+	Check Auto Depth is on - alters zoom depending on what is under the cursor
+
+
+Alt + Z			Toggle whole scene transparent
+
+Shift + H		hide everything except selection
+Alt + H			Show all
+
+Ctrl + Alt + Q Toggle Quad view (Worldcraft style baby)
+numpad0			Toggle view through camera in scene
+
+Creating new viewports:
+	Drag from the curved corner of a viewport.
+	Double click the seam and select join to merge viewports together again
+
+blender 2.8 gizmo position
+or
+3d manipulator not on object, stuck in scene center
+or
+blender 2.8 gizmo locked to 3d cursor
+press . to open the pivot point menu, and select active element for default behaviour
+
+
+////////////////////////////////////////////////////////////////////
+// Editing Camera
+////////////////////////////////////////////////////////////////////
+
+Tilde -> opens a menu where keys 1, 2, 3 etc will change view mode
+
+Mouse3			Rotate camera
+Ctrl + Mouse3	Fine zoom control
+Shift + mouse3	Strafe camera
+
+/ focus on currenct selection and hid others
+
+Frame selected is "Numpad ." which is kinda shitty if you don't have a numpad...
+In rebind menu it is "Frame Selected" - attempting to rebind to f like a fucking sensible program
+Alt F should avoid conflict with other binds?
+
+Increase Viewport render distance:
+* press N to open Viewport side-panel
+* select View tab
+* Increase 'End' value
+
+////////////////////////////////////////////////////////////////////
+// Rendering
+////////////////////////////////////////////////////////////////////
+
+Set view to camera.
+View menu (top left of viewport) -> Cameras -> Set Active Object as Camera
+select camera properties panel and change Lens 'End' and Focal length to alter max distance and FOV
+View menu -> cameras -> Active camera to return
+
+////////////////////////////////////////////////////////////////////
+// Mesh Editing
+////////////////////////////////////////////////////////////////////
+
+
+Mirror a mesh:
+* select object, click spanner icon (modifiers)
+* Add a mirror modifier, select one axis
+Welding
+	Select two verts then:
+	alt + m		Weld vertices. Choose  'last' to move both to position of the second selected
+
+Create a new face
+	vertex mode - select the vertices that make the new face then
+		vertex menu (next to 'edit mode' box)
+			F - New Edge/Face from vertices
+
+Turn a sharp edge into a curved one
+Select edge -> CTRL B
+	Move mouse to vary current setting
+	Press keys to change setting:
+	eg W == width
+	S == number of segments
+
+Proportional Editing
+O to toggle
+To edit circle of influence - start moving a vertex (for example) then
+	mouse wheel or pgup/pgdown
+
+Alt E - extrude along face normals -> extrude multiple faces out
+
+Flip normals:
+Alt + N to access normals context menu then select flip
+
+Reset Scale on object but keep mesh dimensions:
+object mode -> object->apply->scale
+
+
+////////////////////////////////////////////////////////////////////
+// 3D cursor
+////////////////////////////////////////////////////////////////////
+
+shift + s + number key -> move 3d cursor
+
+
+////////////////////////////////////////////////////////////////////
+// Scene editing
+////////////////////////////////////////////////////////////////////
+
+Shift + D	Duplicate
+Alt + D		Linked duplicate - prefab style...?
+
+
+////////////////////////////////////////////////////////////////////
+// materials
+////////////////////////////////////////////////////////////////////
+
+multiple materials on object: Add multiple materials to object via side panel.
+Then select faces in edit mode, select material and click assign.
+Export with materials to import into godot with multiple material slots available
+
+
+////////////////////////////////////////////////////////////////////
+// UV editing/Skinning
+////////////////////////////////////////////////////////////////////
+
+
+
+
+////////////////////////////////////////////////////////////////////
+// Exporting
+////////////////////////////////////////////////////////////////////
+
+Importing a Blender file as a Godot scene file:
+
+Exporting as glTF 2.0
+https://godotengine.org/qa/43625/blender-to-godot-asset-workflow-hell
+
+From Blender:
+Export -> glTF 2.0
+	Select 'Selected objects'
+	Select 'Apply modifiers' (eg mirror)
+	Select +Y Up
+	Export
+Move over to an 'importing' (or maybe 'raw_assets') folder in Godot project
+Click to open the fly -> select 'Open Anyway'
+Save the scene as -> a new godot scene file (.tscn) at a new location
+	This will create a godot scene with that object. Use this as your mesh.
+
+
+////////////////////////////////////////////////////////////////////
+// Links
+////////////////////////////////////////////////////////////////////
+
+https://www.katsbits.com/codex/flip-normals/
+
+
+
+UV mapping tools for retro levels...?
+https://github.com/blackears/blenderUvTools
+
+

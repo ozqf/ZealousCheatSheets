@@ -354,3 +354,53 @@ https://github.com/godotengine/godot/issues/4875
 https://docs.godotengine.org/en/3.2/tutorials/3d/environment_and_post_processing.html
 https://docs.godotengine.org/en/3.2/tutorials/3d/high_dynamic_range.html
 https://docs.godotengine.org/en/3.2/tutorials/3d/baked_lightmaps.html
+
+
+# Custom Builds
+
+## overview docs
+
+[https://docs.godotengine.org/en/stable/contributing/development/compiling/introduction_to_the_buildsystem.html]
+
+## Targets
+
+editor
+template_debug
+template_release
+
+## other options
+
+dev_build=yes
+defines 'DEV_ENABLED', disables optimisations, generates debug symbols. does not define 'NDEBUG'
+
+debug_symbols=yes
+
+-j4
+specifies thread count. By default will use max - 1 so will affect anything demanding whilst compiling.
+
+## platforms
+
+```scons platform=list```
+
+android
+javascript
+linuxbsd
+server
+windows
+
+## examples
+
+### Install scons
+
+```python -m pip install scons```
+
+### Basic compile
+
+```scons platform=windows```
+
+### build templates
+
+```scons platform=windows target=template_release arch=x86_64```
+
+
+
