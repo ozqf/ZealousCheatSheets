@@ -1,4 +1,8 @@
 
+GIZMO
+
+space + shift - show/hide gizmo
+
 shift+z			toggle wireframe
 shift+alt+z		add/remove overlays (eg grid)
 m				move selection to collection
@@ -9,7 +13,16 @@ shift+mouse2	move 3d cursor
 ctrl+space		toggle hide-sidebars
 s y - 1			scale -> y axis -> -1 scale factor
 
+////////////////////////////////////////////////////////////////////
+// Rotate around 3d gizmo
+////////////////////////////////////////////////////////////////////
+
+Centre top next to transform orientation (usually global) is 'transform pivot point'
+change this to 3d cursor.
+
 Set position of 3D cursor:
+shift + mouse 2 -> places in view port. probably useless outside a 2d view unless you can make it clip with a ground plane or something?
+
 N -> opens item/tool/view option panels
 select view
 	3d cursor location and rotation should be listed
