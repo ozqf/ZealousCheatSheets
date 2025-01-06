@@ -78,6 +78,13 @@ Increase Viewport render distance:
 * Increase 'End' value
 
 ////////////////////////////////////////////////////////////////////
+// snapping
+////////////////////////////////////////////////////////////////////
+> Hold control when dragging to snap
+> translation snaps to displayed grid.
+> Change grid size via overlays dropdown, top right of viewport, left of buttons for show wireframe/solid etc.
+
+////////////////////////////////////////////////////////////////////
 // Rendering
 ////////////////////////////////////////////////////////////////////
 
@@ -85,6 +92,41 @@ Set view to camera.
 View menu (top left of viewport) -> Cameras -> Set Active Object as Camera
 select camera properties panel and change Lens 'End' and Focal length to alter max distance and FOV
 View menu -> cameras -> Active camera to return
+
+////////////////////////////////////////////////////////////////////
+// Rigging/bones/animation
+////////////////////////////////////////////////////////////////////
+
+Join bones:
+click child, shift click parent, control P to join them.
+
+Batch rename
+Ctrl + F2	type setname, method suffix, name .L (or .R)
+
+Intick "deform" in a bone's properties (spanner symbol) to have it not affect the attached mesh
+
+attach armature
+in object mode, select model, shift click armature, ctrl + p -> armature deform with automatic weights
+For multiple objects, select all objects and armature last, then ctrl + p.
+
+current pose to 'rest' - select bones hit Alt + R to reset pose
+useful if you deleted animations but forgot to reset the pose
+
+attach IK (inverse kinematics) bone
+> in pose mode:
+> place IK bone make sure it has NO parent
+> select IK bone, then shift click the real bone to control
+> shift i -> add IK
+
+change IK 'chain' length (number of bones it affects)
+> select bone immediately attached to IK bone
+> in bone constraints in inspector panel (lower right) IK constraint -> Chain Length.
+> set to number of bones in given limb.
+
+
+Start over
+remove armature modifier
+delete all vertex groups
 
 ////////////////////////////////////////////////////////////////////
 // Mesh Editing
